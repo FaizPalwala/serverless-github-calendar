@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cd ../packages/serverless-github-calendar && npm run build && cd ../../demo && next build",
     "start": "next start",
     "lint": "eslint"
   },
