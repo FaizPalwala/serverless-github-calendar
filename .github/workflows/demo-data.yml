@@ -1,0 +1,54 @@
+name: Update Demo Data
+on:
+  schedule:
+    - cron: '0 0 * * *' # Run daily at midnight
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch FaizPalwala
+        uses: ./packages/serverless-github-calendar-action
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          username: FaizPalwala
+          output-file: demo/public/FaizPalwala.json
+          output-svg: demo/public/FaizPalwala.svg
+
+      - name: Fetch leerob
+        uses: ./packages/serverless-github-calendar-action
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          username: leerob
+          output-file: demo/public/leerob.json
+          output-svg: demo/public/leerob.svg
+
+      - name: Fetch torvalds
+        uses: ./packages/serverless-github-calendar-action
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          username: torvalds
+          output-file: demo/public/torvalds.json
+          output-svg: demo/public/torvalds.svg
+
+      - name: Fetch yyx990803
+        uses: ./packages/serverless-github-calendar-action
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          username: yyx990803
+          output-file: demo/public/yyx990803.json
+          output-svg: demo/public/yyx990803.svg
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add demo/public/*.json demo/public/*.svg
+          git commit -m "chore: auto-update demo heatmap data" || echo "No changes to commit"
+          git push
