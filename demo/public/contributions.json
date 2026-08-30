@@ -1,0 +1,23 @@
+{
+  "user": {
+    "contributionsCollection": {
+      "contributionCalendar": {
+        "totalContributions": 12,
+        "weeks": [
+          {
+            "contributionDays": [
+              { "contributionCount": 0, "date": "2026-08-02", "contributionLevel": "NONE" },
+              { "contributionCount": 5, "date": "2026-08-03", "contributionLevel": "SECOND_QUARTILE" },
+              { "contributionCount": 1, "date": "2026-08-04", "contributionLevel": "FIRST_QUARTILE" },
+              { "contributionCount": 0, "date": "2026-08-05", "contributionLevel": "NONE" }
+            ]
+          }
+        ],
+        "streaks": {
+          "currentStreak": 2,
+          "longestStreak": 14
+        }
+      }
+    }
+  }
+}
