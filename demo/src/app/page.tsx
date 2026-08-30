@@ -114,7 +114,7 @@ export default async function Home(props: Props) {
                 <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">Static Rendering</span>
               </div>
               <div className="w-full overflow-x-auto pb-4 pt-6 flex justify-center custom-scrollbar">
-                <ServerHeatmap jsonUrl={`/${activeUser}.json`} />
+                <ServerHeatmap jsonUrl={`public/${activeUser}.json`} />
               </div>
             </div>
             
