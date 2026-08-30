@@ -1,117 +1,114 @@
-# Serverless GitHub Calendar: Serverless GitHub Contribution Heatmap
+<div align="center">
+  <br />
+  <h1>⚡️ Serverless GitHub Calendar</h1>
+  <p>
+    <strong>A 100% reliable, zero-runtime-dependency GitHub Contribution Heatmap for React & Static Sites.</strong>
+  </p>
+  <p>
+    <a href="https://www.npmjs.com/package/serverless-github-calendar"><img src="https://img.shields.io/npm/v/serverless-github-calendar?style=flat-square&color=black" alt="NPM Version" /></a>
+    <a href="https://github.com/FaizPalwala/serverless-github-calendar/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/serverless-github-calendar?style=flat-square&color=black" alt="License" /></a>
+  </p>
+</div>
 
-**A highly reliable, 100% serverless open-source replacement for `react-github-calendar`.**
+<br />
 
-Due to the sunset of Deno Deploy Classic, proxy-based APIs like `github-contributions-api.deno.dev` and the libraries that rely on them (such as `react-github-calendar`) have experienced significant downtime, effectively breaking many personal websites and portfolios.
+The popular `react-github-calendar` library relies on proxy APIs that frequently suffer from rate limits and downtime, breaking portfolios everywhere. **Serverless GitHub Calendar** completely reimagines this architecture.
 
-**Serverless GitHub Calendar** is a modern, statically-generated alternative that avoids fragile third-party proxies entirely.
+Instead of fetching data on page load, a GitHub Action queries the GraphQL API on a schedule and injects a static JSON file directly into your build. 
 
-## Why Serverless GitHub Calendar?
+### Why is this better?
+- 🟢 **100% Uptime**: Your heatmap data is served statically from your own domain. If GitHub's API goes down, your site stays up.
+- ⚡️ **Zero Runtime Cost**: No network requests to third-party proxies. Instant rendering.
+- 🎨 **Modern Theming**: Built-in support for native CSS variables (`color-mix`) for flawless Tailwind and Dark Mode integration.
+- 📦 **Ultra Lightweight**: Zero dependencies.
 
-1. **Zero Runtime API Dependency**: Instead of fetching data from a proxy on page load, a GitHub Action queries the official GitHub GraphQL API on a schedule and outputs a static JSON file.
-2. **100% Uptime**: Your heatmap data is served statically alongside your website assets. Even if the GitHub API goes down, your site will still display your most recently generated heatmap.
-3. **Modern CSS Variables**: Native support for `color-mix` and easy Tailwind CSS or dark mode integration.
-4. **Lightweight**: Zero-dependency React component that maps JSON to SVG cleanly.
+---
 
-## Migration Guide (from `react-github-calendar`)
+## 🚀 Quickstart
 
-Migrating is easy and takes less than 5 minutes.
+### 1. The GitHub Action
 
-### 1. Set up the GitHub Action
-
-In your static site repository, add the following workflow file at `.github/workflows/fetch-contributions.yml`:
+Drop this workflow into your static site repository at `.github/workflows/contributions.yml`. It fetches your data every 12 hours and saves it to your `public` folder.
 
 ```yaml
-name: Fetch GitHub Contributions
-
+name: Fetch Contributions
 on:
   schedule:
-    - cron: '0 */12 * * *' # Run every 12 hours
-  workflow_dispatch: # Allow manual triggering
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
 
 jobs:
-  fetch-contributions:
+  update-heatmap:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to commit the file back to the repository
+      contents: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Fetch Contributions
-        uses: ./packages/serverless-github-calendar-action # Or specify the published action URL, e.g. serverless-github-calendar/action@v1
+      - uses: actions/checkout@v4
+      
+      - uses: FaizPalwala/serverless-github-calendar-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           username: your-github-username
           output-file: public/contributions.json
       
-      - name: Commit contributions
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update github contributions"
+          commit_message: "chore: update github heatmap data"
           file_pattern: public/contributions.json
 ```
 
-*Note: For static site generators like Next.js, Astro, or Hugo, output the file to the `public` or `static` directory.*
+### 2. The React Component
 
-### 2. Install the React Component
-
-Remove the old dependency and install the new one:
+Install the ultra-lightweight component:
 
 ```bash
-npm uninstall react-github-calendar
 npm install serverless-github-calendar
 ```
 
-### 3. Update your React Code
+Use it anywhere in your React, Next.js, or Astro application:
 
-**Before:**
-```tsx
-import GitHubCalendar from 'react-github-calendar';
-
-function App() {
-  return <GitHubCalendar username="your-github-username" />;
-}
-```
-
-**After:**
 ```tsx
 import { Heatmap } from 'serverless-github-calendar';
-// Optional: import default styles
-import 'serverless-github-calendar/style.css'; 
+import 'serverless-github-calendar/style.css'; // Optional default themes
 
-function App() {
-  // It automatically fetches `/contributions.json` by default
-  return <Heatmap jsonUrl="/contributions.json" />;
+export default function Portfolio() {
+  // Automatically loads '/contributions.json' from your public folder
+  return <Heatmap />;
 }
 ```
 
-## Styling & Theming
+---
 
-Serverless GitHub Calendar uses modern CSS variables for seamless dark mode integration. You can override these variables in your global CSS to match your site's theme.
+## 🎨 Theming & Customization
+
+The component uses CSS variables for theming, meaning it natively responds to your app's global stylesheets without requiring heavy JavaScript theme providers.
 
 ```css
+/* Add this to your global CSS */
 :root {
-  --serverless-github-calendar-color-0: #ebedf0;
-  --serverless-github-calendar-color-1: #9be9a8;
-  --serverless-github-calendar-color-2: #40c463;
-  --serverless-github-calendar-color-3: #30a14e;
-  --serverless-github-calendar-color-4: #216e39;
+  --serverless-github-color-0: #ebedf0;
+  --serverless-github-color-1: #9be9a8;
+  --serverless-github-color-2: #40c463;
+  --serverless-github-color-3: #30a14e;
+  --serverless-github-color-4: #216e39;
 }
 
-[data-theme='dark'] {
-  --serverless-github-calendar-color-0: #161b22;
-  --serverless-github-calendar-color-1: #0e4429;
-  --serverless-github-calendar-color-2: #006d32;
-  --serverless-github-calendar-color-3: #26a641;
-  --serverless-github-calendar-color-4: #39d353;
+.dark {
+  --serverless-github-color-0: #161b22;
+  --serverless-github-color-1: #0e4429;
+  --serverless-github-color-2: #006d32;
+  --serverless-github-color-3: #26a641;
+  --serverless-github-color-4: #39d353;
 }
 ```
 
-## Packages in this Monorepo
+## 📚 Migration Guide (from `react-github-calendar`)
 
-- `serverless-github-calendar-action`: The GitHub Action to fetch and format contribution data.
-- `serverless-github-calendar`: The ultra-lightweight React component.
+1. Add the GitHub Action workflow to your repository.
+2. Swap the dependency: `npm uninstall react-github-calendar && npm i serverless-github-calendar`.
+3. Replace `<GitHubCalendar username="..." />` with `<Heatmap />`.
+
+Done. You now have a faster, un-breakable portfolio.
 
 ## License
 
