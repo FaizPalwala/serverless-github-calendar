@@ -45,24 +45,38 @@ export default function Home() {
           <div className="p-6 md:p-10 rounded-xl bg-[#282a36] w-full flex flex-col items-center">
             
             {/* Stats Row */}
-            <div className="w-full flex flex-wrap justify-between items-center mb-8 gap-4 px-4 text-sm font-mono text-gray-300">
-              <div className="flex flex-col items-start">
-                <span className="text-gray-500 uppercase text-xs">Total Contributions</span>
-                <span className="text-2xl text-[#f8f8f2] font-bold">{totalContributions}</span>
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <div className="flex flex-col items-center justify-center p-5 bg-[#1e1f29] rounded-xl border border-gray-700/50 shadow-inner hover:border-gray-500 transition-colors">
+                <span className="text-gray-500 uppercase text-xs font-semibold tracking-wider mb-2">Total Contributions</span>
+                <span className="text-4xl text-[#f8f8f2] font-black font-mono">{totalContributions}</span>
               </div>
-              <div className="flex flex-col items-center">
-                <span className="text-gray-500 uppercase text-xs">Current Streak</span>
-                <span className="text-2xl text-[#50fa7b] font-bold">{currentStreak} days 🔥</span>
+              <div className="flex flex-col items-center justify-center p-5 bg-[#1e1f29] rounded-xl border border-gray-700/50 shadow-inner hover:border-[#50fa7b]/50 transition-colors relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#50fa7b] to-[#8be9fd]"></div>
+                <span className="text-gray-500 uppercase text-xs font-semibold tracking-wider mb-2">Current Streak</span>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl text-[#50fa7b] font-black font-mono">{currentStreak}</span>
+                  <span className="text-lg text-gray-400 font-medium">days</span>
+                  <span className="text-2xl ml-1">🔥</span>
+                </div>
               </div>
-              <div className="flex flex-col items-end">
-                <span className="text-gray-500 uppercase text-xs">Longest Streak</span>
-                <span className="text-2xl text-[#ffb86c] font-bold">{longestStreak} days</span>
+              <div className="flex flex-col items-center justify-center p-5 bg-[#1e1f29] rounded-xl border border-gray-700/50 shadow-inner hover:border-[#ffb86c]/50 transition-colors">
+                <span className="text-gray-500 uppercase text-xs font-semibold tracking-wider mb-2">Longest Streak</span>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl text-[#ffb86c] font-black font-mono">{longestStreak}</span>
+                  <span className="text-lg text-gray-400 font-medium">days</span>
+                </div>
               </div>
             </div>
 
             {/* The Heatmap */}
-            <div className="w-full overflow-x-auto pb-4 flex justify-center custom-scrollbar">
-              <ServerHeatmap />
+            <div className="w-full bg-[#1e1f29]/40 rounded-xl p-6 md:p-8 border border-gray-800/50 flex flex-col items-center relative shadow-inner">
+              <div className="absolute top-4 left-6 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-[#ff79c6] animate-pulse"></div>
+                <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">Live Data</span>
+              </div>
+              <div className="w-full overflow-x-auto pb-4 pt-6 flex justify-center custom-scrollbar">
+                <ServerHeatmap />
+              </div>
             </div>
             
           </div>
