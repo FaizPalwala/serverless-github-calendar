@@ -93,6 +93,13 @@ function calculateStreaks(weeks) {
     // But for a simple approach, standard logic applies.
     return { currentStreak, longestStreak };
 }
+function secureResolve(basePath, targetPath) {
+    const resolved = path_1.default.resolve(basePath, targetPath);
+    if (!resolved.startsWith(basePath)) {
+        throw new Error(`Security Violation: Path traversal detected. '${targetPath}' is outside the workspace.`);
+    }
+    return resolved;
+}
 function generateSvg(weeks, theme, streakData) {
     const blockSize = 10;
     const blockMargin = 4;
@@ -107,19 +114,19 @@ function generateSvg(weeks, theme, streakData) {
             const dayOfWeek = dateObj.getUTCDay(); // 0 for Sunday
             const y = dayOfWeek * (blockSize + blockMargin);
             const color = theme[`color_${level}`] || theme.color_0;
-            rects += `\n    <rect x="${x}" y="${y}" width="${blockSize}" height="${blockSize}" rx="2" ry="2" fill="${color}">
+            rects += `\n    <rect x="${x}" y="${y}" width="${blockSize}" height="${blockSize}" rx="2" ry="2" fill="${color}" role="img" aria-label="${day.contributionCount} contributions on ${day.date}">
       <title>${day.contributionCount} contributions on ${day.date}</title>
     </rect>`;
         });
     });
-    return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+    return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Contributions Heatmap">
   <style>
     text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 10px; fill: ${theme.text_color}; }
   </style>
   <g>
 ${rects}
   </g>
-  <text x="0" y="${height - 2}">Current Streak: ${streakData.currentStreak} days | Longest Streak: ${streakData.longestStreak} days</text>
+  <text x="0" y="${height - 2}" aria-hidden="true">Current Streak: ${streakData.currentStreak} days | Longest Streak: ${streakData.longestStreak} days</text>
 </svg>`;
 }
 async function run() {
@@ -141,7 +148,8 @@ async function run() {
         const streaks = calculateStreaks(weeks);
         // Inject streak data into the JSON
         data.user.contributionsCollection.contributionCalendar.streaks = streaks;
-        const outputFilePath = path_1.default.resolve(process.env.GITHUB_WORKSPACE || process.cwd(), outputFile);
+        const workspace = process.env.GITHUB_WORKSPACE || process.cwd();
+        const outputFilePath = secureResolve(workspace, outputFile);
         const outputDir = path_1.default.dirname(outputFilePath);
         if (!fs_1.default.existsSync(outputDir)) {
             fs_1.default.mkdirSync(outputDir, { recursive: true });
@@ -151,7 +159,7 @@ async function run() {
         core.setOutput('output-path', outputFilePath);
         // Write SVG if requested
         if (outputSvg) {
-            const svgPath = path_1.default.resolve(process.env.GITHUB_WORKSPACE || process.cwd(), outputSvg);
+            const svgPath = secureResolve(workspace, outputSvg);
             const svgDir = path_1.default.dirname(svgPath);
             if (!fs_1.default.existsSync(svgDir)) {
                 fs_1.default.mkdirSync(svgDir, { recursive: true });

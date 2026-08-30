@@ -36,6 +36,8 @@ export function ServerHeatmap({
           height={height}
           viewBox={`0 0 ${width} ${height}`}
           style={{ '--block-size': `${blockSize}px`, '--block-margin': `${blockMargin}px` } as React.CSSProperties}
+          role="img"
+          aria-label="GitHub Contributions Heatmap"
         >
           {weeks.map((week: any, weekIndex: number) => (
             <g key={weekIndex} transform={`translate(${weekIndex * (blockSize + blockMargin)}, 0)`}>
@@ -55,6 +57,8 @@ export function ServerHeatmap({
                     data-date={day.date}
                     data-count={day.contributionCount}
                     className="heatmap-block"
+                    role="img"
+                    aria-label={`${day.contributionCount} contributions on ${day.date}`}
                   >
                     <title>{`${day.contributionCount} contributions on ${day.date}`}</title>
                   </rect>

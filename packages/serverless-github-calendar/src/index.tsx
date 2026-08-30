@@ -11,19 +11,20 @@ export interface HeatmapProps {
   className?: string;
 }
 
-type ContributionLevel = 'NONE' | 'FIRST_QUARTILE' | 'SECOND_QUARTILE' | 'THIRD_QUARTILE' | 'FOURTH_QUARTILE';
+export type ContributionLevel = 'NONE' | 'FIRST_QUARTILE' | 'SECOND_QUARTILE' | 'THIRD_QUARTILE' | 'FOURTH_QUARTILE';
 
-interface ContributionDay {
+export interface ContributionDay {
   contributionCount: number;
   date: string;
   contributionLevel: ContributionLevel;
 }
 
-interface ContributionWeek {
+export interface ContributionWeek {
   contributionDays: ContributionDay[];
 }
 
-interface ContributionsData {
+export interface ContributionsData {
+
   user?: {
     contributionsCollection?: {
       contributionCalendar?: {
@@ -82,14 +83,13 @@ export function Heatmap({
         height={height}
         viewBox={`0 0 ${width} ${height}`}
         style={{ '--block-size': `${blockSize}px`, '--block-margin': `${blockMargin}px` } as React.CSSProperties}
+        role="img"
+        aria-label="GitHub Contributions Heatmap"
       >
         {weeks.map((week, weekIndex) => (
           <g key={weekIndex} transform={`translate(${weekIndex * (blockSize + blockMargin)}, 0)`}>
             {week.contributionDays.map((day) => {
               const level = levelMap[day.contributionLevel] || 0;
-              // We infer the day of week using Date if necessary, but GitHub returns them in order (0=Sun to 6=Sat)
-              // Actually, GitHub's first week might not start on Sunday.
-              // To accurately align, we should parse the date.
               const dateObj = new Date(day.date);
               const dayOfWeek = dateObj.getUTCDay(); // 0 for Sunday
               return (
@@ -104,6 +104,8 @@ export function Heatmap({
                   data-date={day.date}
                   data-count={day.contributionCount}
                   className="heatmap-block"
+                  role="img"
+                  aria-label={`${day.contributionCount} contributions on ${day.date}`}
                 >
                   <title>{`${day.contributionCount} contributions on ${day.date}`}</title>
                 </rect>
