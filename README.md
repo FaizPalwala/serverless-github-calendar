@@ -118,6 +118,20 @@ MIT
 
 ## ✨ Features
 
+### 🔒 Include Private Contributions (Optional)
+By default, the Action uses the standard `GITHUB_TOKEN`, which only fetches **public** contributions. To include your private commits, you can pass a Personal Access Token (PAT). 
+
+**Step 1:** Generate a Fine-Grained PAT (or classic PAT with `read:user` scope) and save it as a Repository Secret (e.g. `HEATMAP_PAT`).
+**Step 2:** Swap the token in your workflow:
+```yaml
+      - uses: FaizPalwala/serverless-github-calendar-action@v1
+        with:
+          github-token: ${{ secrets.HEATMAP_PAT }}
+          username: your-github-username
+```
+> [!WARNING]
+> **Security Best Practice:** If your portfolio repository is public, navigate to **Settings > Actions > General** and ensure **"Require approval for all outside collaborators"** is enabled. This prevents malicious Pull Requests from executing workflows that could expose your PAT. The Action masks the token in logs by default.
+
 ### 🖼️ Profile README SVG Generation
 Want to display your heatmap on your GitHub Profile README? Because profile READMEs only support raw images, you can configure the Action to generate an SVG directly.
 

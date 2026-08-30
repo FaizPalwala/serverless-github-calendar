@@ -20062,6 +20062,9 @@ var ExitCode;
   ExitCode2[ExitCode2["Success"] = 0] = "Success";
   ExitCode2[ExitCode2["Failure"] = 1] = "Failure";
 })(ExitCode || (ExitCode = {}));
+function setSecret(secret) {
+  issueCommand("add-mask", {}, secret);
+}
 function getInput(name, options) {
   const val = process.env[`INPUT_${name.replace(/ /g, "_").toUpperCase()}`] || "";
   if (options && options.required && !val) {
@@ -24260,6 +24263,7 @@ ${rects}
 async function run() {
   try {
     const token = getInput("github-token", { required: true });
+    setSecret(token);
     const username = getInput("username", { required: true });
     const outputFile = getInput("output-file") || "public/contributions.json";
     const outputSvg = getInput("output-svg");

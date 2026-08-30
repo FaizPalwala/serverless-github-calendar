@@ -98,6 +98,7 @@ ${rects}
 async function run() {
   try {
     const token = core.getInput('github-token', { required: true });
+    core.setSecret(token); // Ensure the token is always masked in logs
     const username = core.getInput('username', { required: true });
     const outputFile = core.getInput('output-file') || 'public/contributions.json';
     const outputSvg = core.getInput('output-svg');
