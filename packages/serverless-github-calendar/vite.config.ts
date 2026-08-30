@@ -13,7 +13,7 @@ export default defineConfig({
       name: 'ServerlessGithubCalendar',
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'fs', 'path'],
+      external: ['react', 'react-dom', 'react/jsx-runtime', 'fs', 'path'],
       output: {
         globals: {
           react: 'React',

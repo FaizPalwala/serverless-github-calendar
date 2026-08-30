@@ -11,8 +11,8 @@ export function ServerHeatmap({
   className = '',
 }: HeatmapProps) {
   try {
-    const filePath = path.resolve(process.cwd(), jsonUrl);
-    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const filePath = path.resolve(/*turbopackIgnore: true*/ process.cwd(), jsonUrl);
+    const fileContent = fs.readFileSync(/*turbopackIgnore: true*/ filePath, 'utf8');
     const data = JSON.parse(fileContent);
 
     const weeks = data.user?.contributionsCollection?.contributionCalendar?.weeks || [];
