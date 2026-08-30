@@ -42,7 +42,13 @@ export default function Home() {
         
         {/* The Card */}
         <div className="w-full p-1 border border-gray-800 rounded-2xl bg-gradient-to-b from-gray-800/50 to-gray-900/50 shadow-2xl backdrop-blur-xl">
-          <div className="p-6 md:p-10 rounded-xl bg-[#282a36] w-full flex flex-col items-center">
+          <div className="p-6 md:p-10 rounded-xl bg-[#282a36] w-full flex flex-col items-center relative">
+            
+            {/* User Badge */}
+            <div className="absolute top-6 left-6 flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full border border-gray-700/50">
+              <img src="https://github.com/FaizPalwala.png?size=40" alt="FaizPalwala" className="w-6 h-6 rounded-full border border-gray-600" />
+              <span className="text-xs font-mono text-gray-300">@FaizPalwala</span>
+            </div>
             
             {/* Stats Row */}
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
