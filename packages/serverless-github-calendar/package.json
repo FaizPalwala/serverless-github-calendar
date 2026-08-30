@@ -1,6 +1,6 @@
 {
   "name": "serverless-github-calendar",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Serverless GitHub Contribution Heatmap for React",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
