@@ -113,3 +113,38 @@ Done. You now have a faster, un-breakable portfolio.
 ## License
 
 MIT
+
+---
+
+## 🔥 Growth Hack Features Included!
+
+### 1. The "Profile README" SVG Generator
+If you want to show your heatmap on your `username/username` GitHub Profile README (which doesn't support React components), the Action now generates an SVG!
+```yaml
+      - uses: FaizPalwala/serverless-github-calendar-action@v1
+        with:
+          username: your-github-username
+          output-svg: public/heatmap.svg
+```
+Now just add `![My Heatmap](heatmap.svg)` to your profile markdown!
+
+### 2. Built-in Streak Stats
+The JSON and SVG now automatically calculate and include your **Current Streak** and **Longest Streak**. Flex your commit consistency with zero extra API requests.
+
+### 3. Pre-packaged Community Themes
+Don't want to write CSS variables? We got you. Import a beautiful pre-packaged theme:
+```tsx
+import 'serverless-github-calendar/themes/dracula.css';
+// Or: github-dark.css, github-light.css
+```
+
+### 4. Next.js React Server Component (RSC) Support
+If you're using the Next.js App Router, you can use our Server Component for zero client-side JavaScript.
+```tsx
+import { ServerHeatmap } from 'serverless-github-calendar/rsc';
+
+export default function Page() {
+  // Reads the JSON file instantly on the server using fs.readFileSync
+  return <ServerHeatmap />;
+}
+```

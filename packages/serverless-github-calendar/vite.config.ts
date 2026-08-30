@@ -6,12 +6,14 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.tsx'),
+      entry: {
+        index: resolve(__dirname, 'src/index.tsx'),
+        rsc: resolve(__dirname, 'src/rsc.tsx'),
+      },
       name: 'ServerlessGithubCalendar',
-      fileName: 'index',
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'fs', 'path'],
       output: {
         globals: {
           react: 'React',

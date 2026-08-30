@@ -1,5 +1,5 @@
-name: 'Serverless GitHub Calendar Heatmap Fetcher'
-description: 'Fetches GitHub contributions for a user and saves to a JSON file.'
+name: 'Serverless GitHub Calendar Fetcher'
+description: 'Fetches GitHub contributions for a user and saves to JSON or SVG.'
 inputs:
   github-token:
     description: 'GitHub token for GraphQL API (needs read:user)'
@@ -11,6 +11,33 @@ inputs:
     description: 'Path to save the contributions JSON'
     required: false
     default: 'public/contributions.json'
+  output-svg:
+    description: 'Optional path to output an SVG heatmap for Profile READMEs'
+    required: false
+  color-0:
+    description: 'Color for 0 contributions (SVG)'
+    required: false
+    default: '#ebedf0'
+  color-1:
+    description: 'Color for 1st quartile (SVG)'
+    required: false
+    default: '#9be9a8'
+  color-2:
+    description: 'Color for 2nd quartile (SVG)'
+    required: false
+    default: '#40c463'
+  color-3:
+    description: 'Color for 3rd quartile (SVG)'
+    required: false
+    default: '#30a14e'
+  color-4:
+    description: 'Color for 4th quartile (SVG)'
+    required: false
+    default: '#216e39'
+  text-color:
+    description: 'Color for streak text (SVG)'
+    required: false
+    default: '#24292e'
 outputs:
   output-path:
     description: 'The path where the JSON file was written'

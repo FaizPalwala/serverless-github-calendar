@@ -8,9 +8,14 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.umd.js"
+      "require": "./dist/index.js"
     },
-    "./style.css": "./style.css"
+    "./rsc": {
+      "import": "./dist/rsc.mjs",
+      "require": "./dist/rsc.js"
+    },
+    "./style.css": "./style.css",
+    "./themes/*": "./themes/*"
   },
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly"
