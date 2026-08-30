@@ -1,0 +1,19 @@
+name: 'Serverless GitHub Calendar Heatmap Fetcher'
+description: 'Fetches GitHub contributions for a user and saves to a JSON file.'
+inputs:
+  github-token:
+    description: 'GitHub token for GraphQL API (needs read:user)'
+    required: true
+  username:
+    description: 'GitHub username to fetch contributions for'
+    required: true
+  output-file:
+    description: 'Path to save the contributions JSON'
+    required: false
+    default: 'public/contributions.json'
+outputs:
+  output-path:
+    description: 'The path where the JSON file was written'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

@@ -1,0 +1,23 @@
+{
+  "name": "serverless-github-calendar-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build src/index.ts -o dist --license licenses.txt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^3.0.1",
+    "@actions/github": "^9.1.1",
+    "@octokit/graphql": "^9.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "@vercel/ncc": "^0.45.0",
+    "typescript": "^5.4.5"
+  }
+}
