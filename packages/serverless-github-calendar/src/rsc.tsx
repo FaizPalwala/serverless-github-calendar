@@ -30,7 +30,7 @@ export function ServerHeatmap({
     };
 
     return (
-      <div className={`serverless-github-heatmap ${className}`}>
+      <div className={`serverless-github-calendar-heatmap ${className}`}>
         <svg
           width={width}
           height={height}

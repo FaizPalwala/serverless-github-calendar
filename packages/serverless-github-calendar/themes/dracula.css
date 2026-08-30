@@ -1,7 +1,7 @@
-.serverless-github-heatmap {
-  --serverless-github-color-0: #282a36;
-  --serverless-github-color-1: #50fa7b40;
-  --serverless-github-color-2: #50fa7b70;
-  --serverless-github-color-3: #50fa7ba0;
-  --serverless-github-color-4: #50fa7b;
+.serverless-github-calendar-heatmap {
+  --serverless-github-calendar-color-0: #282a36;
+  --serverless-github-calendar-color-1: #50fa7b40;
+  --serverless-github-calendar-color-2: #50fa7b70;
+  --serverless-github-calendar-color-3: #50fa7ba0;
+  --serverless-github-calendar-color-4: #50fa7b;
 }
