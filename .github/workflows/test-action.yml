@@ -1,12 +1,14 @@
 name: Test Heatmap Action
 on:
+  push:
+    branches:
+      - master
+  pull_request:
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v7
       
@@ -18,8 +20,24 @@ jobs:
           output-file: public/contributions.json
           output-svg: public/heatmap.svg
           
-      - name: Commit test data
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "chore: update github heatmap data [test]"
-          file_pattern: public/*
+      - name: Validate Output
+        run: |
+          if [ ! -f "public/contributions.json" ]; then
+            echo "::error::contributions.json was not created"
+            exit 1
+          fi
+          if [ ! -f "public/heatmap.svg" ]; then
+            echo "::error::heatmap.svg was not created"
+            exit 1
+          fi
+          
+          # Ensure JSON is valid and contains 'weeks' array
+          node -e "
+            const data = require('./public/contributions.json');
+            if (!data.user.contributionsCollection.contributionCalendar.weeks) {
+              console.error('Invalid JSON structure');
+              process.exit(1);
+            }
+            console.log('JSON Output is valid and contains streak data!');
+          "
+
