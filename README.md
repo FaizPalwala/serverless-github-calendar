@@ -116,35 +116,40 @@ MIT
 
 ---
 
-## 🔥 Growth Hack Features Included!
+## ✨ Features
 
-### 1. The "Profile README" SVG Generator
-If you want to show your heatmap on your `username/username` GitHub Profile README (which doesn't support React components), the Action now generates an SVG!
+### 🖼️ Profile README SVG Generation
+Want to display your heatmap on your GitHub Profile README? Because profile READMEs only support raw images, you can configure the Action to generate an SVG directly.
+
 ```yaml
       - uses: FaizPalwala/serverless-github-calendar-action@v1
         with:
           username: your-github-username
           output-svg: public/heatmap.svg
 ```
-Now just add `![My Heatmap](heatmap.svg)` to your profile markdown!
+You can then embed the SVG in any markdown file: `![My Heatmap](heatmap.svg)`
 
-### 2. Built-in Streak Stats
-The JSON and SVG now automatically calculate and include your **Current Streak** and **Longest Streak**. Flex your commit consistency with zero extra API requests.
+### 📈 Built-in Streak Stats
+The Action automatically calculates your **Current Streak** and **Longest Streak** from the past year of contributions. This data is cleanly embedded directly into the output JSON and the SVG rendering, allowing you to showcase your commit consistency effortlessly.
 
-### 3. Pre-packaged Community Themes
-Don't want to write CSS variables? We got you. Import a beautiful pre-packaged theme:
+### 🎨 Pre-packaged Themes
+If you prefer not to configure CSS variables manually, you can import one of our pre-packaged themes instantly.
+
 ```tsx
+// Choose one of the following:
 import 'serverless-github-calendar/themes/dracula.css';
-// Or: github-dark.css, github-light.css
+import 'serverless-github-calendar/themes/github-dark.css';
+import 'serverless-github-calendar/themes/github-light.css';
 ```
 
-### 4. Next.js React Server Component (RSC) Support
-If you're using the Next.js App Router, you can use our Server Component for zero client-side JavaScript.
+### ⚛️ Next.js Server Component (RSC) Support
+For Next.js App Router users, we provide a dedicated Server Component. It bypasses client-side fetches entirely by reading the JSON file directly from your server's filesystem, resulting in zero client-side JavaScript overhead.
+
 ```tsx
 import { ServerHeatmap } from 'serverless-github-calendar/rsc';
 
 export default function Page() {
-  // Reads the JSON file instantly on the server using fs.readFileSync
+  // Reads the JSON file instantly on the server via fs.readFileSync
   return <ServerHeatmap />;
 }
 ```
