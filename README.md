@@ -89,19 +89,19 @@ The component uses CSS variables for theming, meaning it natively responds to yo
 ```css
 /* Add this to your global CSS */
 :root {
-  --serverless-github-color-0: #ebedf0;
-  --serverless-github-color-1: #9be9a8;
-  --serverless-github-color-2: #40c463;
-  --serverless-github-color-3: #30a14e;
-  --serverless-github-color-4: #216e39;
+  --serverless-github-calendar-color-0: #ebedf0;
+  --serverless-github-calendar-color-1: #9be9a8;
+  --serverless-github-calendar-color-2: #40c463;
+  --serverless-github-calendar-color-3: #30a14e;
+  --serverless-github-calendar-color-4: #216e39;
 }
 
 .dark {
-  --serverless-github-color-0: #161b22;
-  --serverless-github-color-1: #0e4429;
-  --serverless-github-color-2: #006d32;
-  --serverless-github-color-3: #26a641;
-  --serverless-github-color-4: #39d353;
+  --serverless-github-calendar-color-0: #161b22;
+  --serverless-github-calendar-color-1: #0e4429;
+  --serverless-github-calendar-color-2: #006d32;
+  --serverless-github-calendar-color-3: #26a641;
+  --serverless-github-calendar-color-4: #39d353;
 }
 ```
 
