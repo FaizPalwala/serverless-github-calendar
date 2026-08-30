@@ -9,7 +9,7 @@ type Props = {
 }
 
 const PROFILES = [
-  { id: 'FaizPalwala', name: 'Faiz Palwala', role: 'You' },
+  { id: 'FaizPalwala', name: 'Faiz Palwala', role: 'Creator' },
   { id: 'leerob', name: 'Lee Robinson', role: 'Vercel' },
   { id: 'torvalds', name: 'Linus Torvalds', role: 'Linux' },
   { id: 'yyx990803', name: 'Evan You', role: 'Vue.js' }
