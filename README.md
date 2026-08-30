@@ -5,6 +5,9 @@
     <strong>A 100% reliable, zero-runtime-dependency GitHub Contribution Heatmap for React & Static Sites.</strong>
   </p>
   <p>
+    <a href="https://serverless-github-calendar-demo.vercel.app"><strong>View Live Demo →</strong></a>
+  </p>
+  <p>
     <a href="https://www.npmjs.com/package/serverless-github-calendar"><img src="https://img.shields.io/npm/v/serverless-github-calendar?style=flat-square&color=black" alt="NPM Version" /></a>
     <a href="https://github.com/FaizPalwala/serverless-github-calendar/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/serverless-github-calendar?style=flat-square&color=black" alt="License" /></a>
   </p>
@@ -167,3 +170,24 @@ export default function Page() {
   return <ServerHeatmap />;
 }
 ```
+
+---
+
+## 🛠️ Troubleshooting & FAQ
+
+**Q: My calendar is empty or missing days?**  
+A: Ensure your GitHub Action ran successfully. If you have private commits, make sure you followed the 🔒 **Include Private Contributions** setup using a PAT instead of the default token.
+
+**Q: Does this work with any framework?**  
+A: The `<Heatmap />` component works with any React-based framework (Next.js, Vite, CRA, Astro via `@astrojs/react`).
+
+## 🤝 Contributing
+Pull requests are welcome! If you want to add a new theme or fix a bug:
+1. Clone the repo and run `npm install`.
+2. Navigate to `/demo` and run `npm run dev` to test your changes locally.
+3. Open a Pull Request!
+
+## 💖 Support the Project
+If this library saved your portfolio from proxy downtime, consider supporting the project!
+* [Sponsor on GitHub](https://github.com/sponsors/FaizPalwala)
+* [Buy Me a Coffee](https://buymeacoffee.com/FaizPalwala)
