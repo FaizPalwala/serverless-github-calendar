@@ -108,13 +108,26 @@ export default async function Home(props: Props) {
             </div>
 
             {/* The Heatmap */}
-            <div className="w-full bg-[#1e1f29]/40 rounded-xl p-6 md:p-8 border border-gray-800/50 flex flex-col items-center relative shadow-inner">
+            <div className="w-full bg-[#1e1f29]/40 rounded-xl p-6 md:p-8 border border-gray-800/50 flex flex-col items-center relative shadow-inner demo-heatmap-container">
               <div className="absolute top-4 left-6 flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-[#ff79c6] animate-pulse"></div>
-                <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">Static Rendering</span>
+                <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">Live Data</span>
               </div>
-              <div className="w-full overflow-x-auto pb-4 pt-6 flex justify-center custom-scrollbar">
+              <div className="w-full overflow-x-auto pb-2 pt-8 flex justify-center custom-scrollbar">
                 <ServerHeatmap jsonUrl={`public/${activeUser}.json`} />
+              </div>
+              
+              {/* Legend (Key) */}
+              <div className="w-full flex justify-end items-center gap-2 mt-4 text-xs font-mono text-gray-500 pr-4">
+                <span>Less</span>
+                <div className="flex gap-1">
+                  <div className="w-[10px] h-[10px] rounded-[2px] bg-[#282a36]"></div>
+                  <div className="w-[10px] h-[10px] rounded-[2px] bg-[#bd93f9]"></div>
+                  <div className="w-[10px] h-[10px] rounded-[2px] bg-[#d686df]"></div>
+                  <div className="w-[10px] h-[10px] rounded-[2px] bg-[#ef7ac5]"></div>
+                  <div className="w-[10px] h-[10px] rounded-[2px] bg-[#ff79c6]"></div>
+                </div>
+                <span>More</span>
               </div>
             </div>
             
@@ -133,12 +146,21 @@ export default async function Home(props: Props) {
 
       </div>
       
-      {/* CSS for custom scrollbar */}
+      {/* CSS for custom scrollbar and heatmap gradient override */}
       <style dangerouslySetInnerHTML={{__html: `
         .custom-scrollbar::-webkit-scrollbar { height: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #44475a; border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #6272a4; }
+        
+        /* Override Dracula theme to use the sleek purple-to-pink gradient */
+        .demo-heatmap-container .serverless-github-heatmap {
+          --serverless-github-calendar-color-0: #282a36;
+          --serverless-github-calendar-color-1: #bd93f9;
+          --serverless-github-calendar-color-2: #d686df;
+          --serverless-github-calendar-color-3: #ef7ac5;
+          --serverless-github-calendar-color-4: #ff79c6;
+        }
       `}} />
     </main>
   );
