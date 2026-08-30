@@ -1,14 +1,22 @@
 {
   "name": "serverless-github-calendar-action",
   "version": "1.0.0",
-  "description": "",
+  "description": "GitHub Action to fetch and statically compile GitHub contributions into a Serverless JSON and SVG Heatmap.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "esbuild src/index.ts --bundle --platform=node --target=node24 --outfile=dist/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "github",
+    "action",
+    "calendar",
+    "heatmap",
+    "contributions",
+    "serverless",
+    "svg"
+  ],
+  "author": "FaizPalwala",
   "license": "ISC",
   "dependencies": {
     "@actions/core": "^3.0.1",
@@ -19,5 +27,14 @@
     "@types/node": "^26.4.0",
     "esbuild": "^0.28.2",
     "typescript": "^5.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FaizPalwala/serverless-github-calendar.git",
+    "directory": "packages/serverless-github-calendar-action"
+  },
+  "homepage": "https://github.com/FaizPalwala/serverless-github-calendar#readme",
+  "bugs": {
+    "url": "https://github.com/FaizPalwala/serverless-github-calendar/issues"
   }
 }

@@ -7,5 +7,12 @@
   ],
   "devDependencies": {
     "@changesets/cli": "^3.0.1"
-  }
+  },
+  "description": "A 100% reliable, zero-runtime-dependency GitHub Contribution Heatmap for React & Static Sites.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FaizPalwala/serverless-github-calendar.git"
+  },
+  "author": "FaizPalwala",
+  "license": "MIT"
 }
