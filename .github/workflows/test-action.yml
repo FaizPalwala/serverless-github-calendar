@@ -1,0 +1,25 @@
+name: Test Heatmap Action
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run Action Locally
+        uses: ./packages/serverless-github-calendar-action
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          username: FaizPalwala
+          output-file: public/contributions.json
+          output-svg: public/heatmap.svg
+          
+      - name: Commit test data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update github heatmap data [test]"
+          file_pattern: public/*
