@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { ServerHeatmap } from 'serverless-github-calendar/rsc';
 import 'serverless-github-calendar/themes/dracula.css';
 
+export const dynamic = 'force-dynamic';
+
 type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
@@ -155,11 +157,11 @@ export default async function Home(props: Props) {
         
         /* Override Dracula theme to use the sleek purple-to-pink gradient */
         .demo-heatmap-container .serverless-github-heatmap {
-          --serverless-github-calendar-color-0: #282a36;
-          --serverless-github-calendar-color-1: #bd93f9;
-          --serverless-github-calendar-color-2: #d686df;
-          --serverless-github-calendar-color-3: #ef7ac5;
-          --serverless-github-calendar-color-4: #ff79c6;
+          --serverless-github-color-0: #282a36;
+          --serverless-github-color-1: #bd93f9;
+          --serverless-github-color-2: #d686df;
+          --serverless-github-color-3: #ef7ac5;
+          --serverless-github-color-4: #ff79c6;
         }
       `}} />
     </main>
