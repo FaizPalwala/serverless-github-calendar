@@ -43,7 +43,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       
       - uses: FaizPalwala/serverless-github-calendar-action@v1
         with:
@@ -51,7 +51,7 @@ jobs:
           username: your-github-username
           output-file: public/contributions.json
       
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore: update github heatmap data"
           file_pattern: public/contributions.json

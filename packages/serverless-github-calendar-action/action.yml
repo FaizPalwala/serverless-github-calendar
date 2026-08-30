@@ -42,5 +42,6 @@ outputs:
   output-path:
     description: 'The path where the JSON file was written'
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'dist/index.js'
+

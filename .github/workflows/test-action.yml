@@ -8,7 +8,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       
       - name: Run Action Locally
         uses: ./packages/serverless-github-calendar-action
@@ -19,7 +19,7 @@ jobs:
           output-svg: public/heatmap.svg
           
       - name: Commit test data
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore: update github heatmap data [test]"
           file_pattern: public/*
