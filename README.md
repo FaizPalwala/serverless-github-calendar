@@ -9,7 +9,7 @@
   </p>
   <p>
     <a href="https://www.npmjs.com/package/serverless-github-calendar"><img src="https://img.shields.io/npm/v/serverless-github-calendar?style=flat-square&color=black" alt="NPM Version" /></a>
-    <a href="https://github.com/FaizPalwala/serverless-github-calendar/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/serverless-github-calendar?style=flat-square&color=black" alt="License" /></a>
+    <a href="https://github.com/FaizPalwala/serverless-github-calendar/blob/master/LICENSE"><img src="https://img.shields.io/github/license/FaizPalwala/serverless-github-calendar?style=flat-square&color=black" alt="License" /></a>
   </p>
 </div>
 
@@ -113,10 +113,6 @@ The component uses CSS variables for theming, meaning it natively responds to yo
 
 Done. You now have a faster, un-breakable portfolio.
 
-## License
-
-MIT
-
 ---
 
 ## ✨ Features
@@ -191,3 +187,6 @@ Pull requests are welcome! If you want to add a new theme or fix a bug:
 If this library saved your portfolio from proxy downtime, consider supporting the project!
 * [Sponsor on GitHub](https://github.com/sponsors/FaizPalwala)
 * [Buy Me a Coffee](https://buymeacoffee.com/FaizPalwala)
+
+## 📄 License
+MIT
