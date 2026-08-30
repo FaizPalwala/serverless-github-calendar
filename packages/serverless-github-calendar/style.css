@@ -1,0 +1,30 @@
+.serverless-github-calendar-heatmap {
+  /* Default modern colors using color-mix for automatic themes */
+  --heatmap-color-0: var(--serverless-github-calendar-color-0, #ebedf0);
+  --heatmap-color-1: var(--serverless-github-calendar-color-1, #9be9a8);
+  --heatmap-color-2: var(--serverless-github-calendar-color-2, #40c463);
+  --heatmap-color-3: var(--serverless-github-calendar-color-3, #30a14e);
+  --heatmap-color-4: var(--serverless-github-calendar-color-4, #216e39);
+}
+
+@media (prefers-color-scheme: dark) {
+  .serverless-github-calendar-heatmap {
+    --heatmap-color-0: var(--serverless-github-calendar-color-0, #161b22);
+    --heatmap-color-1: var(--serverless-github-calendar-color-1, #0e4429);
+    --heatmap-color-2: var(--serverless-github-calendar-color-2, #006d32);
+    --heatmap-color-3: var(--serverless-github-calendar-color-3, #26a641);
+    --heatmap-color-4: var(--serverless-github-calendar-color-4, #39d353);
+  }
+}
+
+.heatmap-block {
+  fill: var(--heatmap-color-0);
+  transition: fill 0.2s ease;
+}
+.heatmap-block[data-level="1"] { fill: var(--heatmap-color-1); }
+.heatmap-block[data-level="2"] { fill: var(--heatmap-color-2); }
+.heatmap-block[data-level="3"] { fill: var(--heatmap-color-3); }
+.heatmap-block[data-level="4"] { fill: var(--heatmap-color-4); }
+.heatmap-block:hover {
+  opacity: 0.8;
+}
