@@ -48,7 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       
-      - uses: FaizPalwala/serverless-github-calendar-action@v1
+      - uses: FaizPalwala/serverless-github-calendar/packages/serverless-github-calendar-action@v1.0.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           username: your-github-username
@@ -123,7 +123,7 @@ By default, the Action uses the standard `GITHUB_TOKEN`, which only fetches **pu
 **Step 1:** Generate a Fine-Grained PAT (or classic PAT with `read:user` scope) and save it as a Repository Secret (e.g. `HEATMAP_PAT`).
 **Step 2:** Swap the token in your workflow:
 ```yaml
-      - uses: FaizPalwala/serverless-github-calendar-action@v1
+      - uses: FaizPalwala/serverless-github-calendar/packages/serverless-github-calendar-action@v1.0.0
         with:
           github-token: ${{ secrets.HEATMAP_PAT }}
           username: your-github-username
@@ -135,7 +135,7 @@ By default, the Action uses the standard `GITHUB_TOKEN`, which only fetches **pu
 Want to display your heatmap on your GitHub Profile README? Because profile READMEs only support raw images, you can configure the Action to generate an SVG directly.
 
 ```yaml
-      - uses: FaizPalwala/serverless-github-calendar-action@v1
+      - uses: FaizPalwala/serverless-github-calendar/packages/serverless-github-calendar-action@v1.0.0
         with:
           username: your-github-username
           output-svg: public/heatmap.svg
