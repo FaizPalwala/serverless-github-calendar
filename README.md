@@ -5,7 +5,7 @@
     <strong>A 100% reliable, zero-runtime-dependency GitHub Contribution Heatmap for React & Static Sites.</strong>
   </p>
   <p>
-    <a href="https://serverless-github-calendar-demo.vercel.app"><strong>View Live Demo →</strong></a>
+    <a href="https://serverless-github-calendar-demo-xi.vercel.app"><strong>View Live Demo →</strong></a>
   </p>
   <p>
     <a href="https://www.npmjs.com/package/serverless-github-calendar"><img src="https://img.shields.io/npm/v/serverless-github-calendar?style=flat-square&color=black" alt="NPM Version" /></a>
