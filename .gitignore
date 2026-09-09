@@ -7,3 +7,6 @@ RELEASE_TRACKER.md
 # Internal
 .internal_tracker.md
 /public/
+
+# Release Copy
+release_copy/
