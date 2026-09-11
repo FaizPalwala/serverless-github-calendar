@@ -2,6 +2,7 @@ import * as core from '@actions/core';
 import * as github from '@actions/github';
 import fs from 'fs';
 import path from 'path';
+import { z } from 'zod';
 
 const query = `
   query($username: String!) {
@@ -21,6 +22,27 @@ const query = `
     }
   }
 `;
+
+const GraphQLResponseSchema = z.object({
+  user: z.object({
+    contributionsCollection: z.object({
+      contributionCalendar: z.object({
+        totalContributions: z.number(),
+        weeks: z.array(
+          z.object({
+            contributionDays: z.array(
+              z.object({
+                contributionCount: z.number(),
+                date: z.string(),
+                contributionLevel: z.string(),
+              })
+            ),
+          })
+        ).min(1, "API returned an empty calendar"),
+      }),
+    }),
+  }),
+});
 
 const levelMap: Record<string, number> = {
   NONE: 0,
@@ -48,9 +70,6 @@ function calculateStreaks(weeks: any[]) {
     }
   }
   
-  // If the last day has 0 contributions, maybe they haven't committed today yet.
-  // We can look at the latest day. If the latest day is 0, we can check yesterday.
-  // But for a simple approach, standard logic applies.
   return { currentStreak, longestStreak };
 }
 
@@ -112,12 +131,28 @@ async function run() {
     const octokit = github.getOctokit(token);
     core.info(`Fetching contributions for ${username}...`);
     
-    const data: any = await octokit.graphql(query, { username });
+    const rawData: any = await octokit.graphql(query, { username });
+    
+    // Strict Schema Validation: The Last-Known-Good Contract
+    const data = GraphQLResponseSchema.parse(rawData);
+    
     const weeks = data.user.contributionsCollection.contributionCalendar.weeks;
     const streaks = calculateStreaks(weeks);
     
     // Inject streak data into the JSON
-    data.user.contributionsCollection.contributionCalendar.streaks = streaks;
+    const finalPayload = {
+        ...data,
+        user: {
+            ...data.user,
+            contributionsCollection: {
+                ...data.user.contributionsCollection,
+                contributionCalendar: {
+                    ...data.user.contributionsCollection.contributionCalendar,
+                    streaks
+                }
+            }
+        }
+    };
 
     const workspace = process.env.GITHUB_WORKSPACE || process.cwd();
     const outputFilePath = secureResolve(workspace, outputFile);
@@ -127,7 +162,7 @@ async function run() {
       fs.mkdirSync(outputDir, { recursive: true });
     }
     
-    fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2));
+    fs.writeFileSync(outputFilePath, JSON.stringify(finalPayload, null, 2));
     core.info(`Successfully wrote contributions JSON to ${outputFilePath}`);
     core.setOutput('output-path', outputFilePath);
 
@@ -149,7 +184,7 @@ async function run() {
     }
     
   } catch (error: any) {
-    core.setFailed(error.message);
+    core.setFailed(`Action failed: ${error.message}`);
   }
 }
 

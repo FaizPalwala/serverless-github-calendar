@@ -131,6 +131,26 @@ By default, the Action uses the standard `GITHUB_TOKEN`, which only fetches **pu
 > [!WARNING]
 > **Security Best Practice:** If your portfolio repository is public, navigate to **Settings > Actions > General** and ensure **"Require approval for all outside collaborators"** is enabled. This prevents malicious Pull Requests from executing workflows that could expose your PAT. The Action masks the token in logs by default.
 
+### 🔄 The Deployment Loop (And How to Manage It)
+
+Because this library relies on statically injected data, your site must deploy for the heatmap to update. By default, the GitHub Action commits the fresh `contributions.json` to your repository, which automatically triggers a build on Vercel/Netlify.
+
+**Is this bad?**
+No. Running the cron job every 12 hours results in 2 deploys per day (~60 deploys per month). A static portfolio takes about 1 minute to build, meaning you'll use roughly **60 build minutes per month** (just 1% of Vercel's 6,000 free-tier minutes).
+
+**How to Opt-Out (Save Build Minutes)**
+If you are heavily constrained on build minutes, you have two options:
+1. **Reduce the Cron Frequency:** Change the cron schedule to `0 0 * * *` to run only once per day.
+2. **Skip CI:** You can tell Vercel/Netlify to ignore the commit entirely by adding `[skip ci]` to the commit message in your workflow:
+
+```yaml
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: update github heatmap data [skip ci]"
+          file_pattern: public/contributions.json
+```
+*(Note: If you use `[skip ci]`, your heatmap will only update when you push other code changes to your portfolio!)*
+
 ### 🖼️ Profile README SVG Generation
 Want to display your heatmap on your GitHub Profile README? Because profile READMEs only support raw images, you can configure the Action to generate an SVG directly.
 

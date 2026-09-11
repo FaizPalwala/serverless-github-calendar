@@ -1,6 +1,6 @@
 {
   "name": "serverless-github-calendar-action",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "GitHub Action to fetch and statically compile GitHub contributions into a Serverless JSON and SVG Heatmap.",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,8 @@
   "dependencies": {
     "@actions/core": "^3.0.1",
     "@actions/github": "^9.1.1",
-    "@octokit/graphql": "^9.0.4"
+    "@octokit/graphql": "^9.0.4",
+    "zod": "^4.6.2"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",
