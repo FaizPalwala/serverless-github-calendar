@@ -2,47 +2,8 @@
   "user": {
     "contributionsCollection": {
       "contributionCalendar": {
-        "totalContributions": 3714,
+        "totalContributions": 3722,
         "weeks": [
-          {
-            "contributionDays": [
-              {
-                "contributionCount": 8,
-                "date": "2025-09-07",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 2,
-                "date": "2025-09-08",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 3,
-                "date": "2025-09-09",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 4,
-                "date": "2025-09-10",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 6,
-                "date": "2025-09-11",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 3,
-                "date": "2025-09-12",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 4,
-                "date": "2025-09-13",
-                "contributionLevel": "FIRST_QUARTILE"
-              }
-            ]
-          },
           {
             "contributionDays": [
               {
@@ -2065,8 +2026,17 @@
                 "contributionLevel": "FIRST_QUARTILE"
               },
               {
-                "contributionCount": 0,
+                "contributionCount": 8,
                 "date": "2026-09-12",
+                "contributionLevel": "FIRST_QUARTILE"
+              }
+            ]
+          },
+          {
+            "contributionDays": [
+              {
+                "contributionCount": 0,
+                "date": "2026-09-13",
                 "contributionLevel": "NONE"
               }
             ]
