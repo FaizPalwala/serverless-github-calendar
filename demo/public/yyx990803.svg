@@ -304,14 +304,14 @@
     <rect x="196" y="14" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="3 contributions on 2026-01-12">
       <title>3 contributions on 2026-01-12</title>
     </rect>
-    <rect x="196" y="28" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="20 contributions on 2026-01-13">
-      <title>20 contributions on 2026-01-13</title>
+    <rect x="196" y="28" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="14 contributions on 2026-01-13">
+      <title>14 contributions on 2026-01-13</title>
     </rect>
     <rect x="196" y="42" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="2 contributions on 2026-01-14">
       <title>2 contributions on 2026-01-14</title>
     </rect>
-    <rect x="196" y="56" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="8 contributions on 2026-01-15">
-      <title>8 contributions on 2026-01-15</title>
+    <rect x="196" y="56" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="5 contributions on 2026-01-15">
+      <title>5 contributions on 2026-01-15</title>
     </rect>
     <rect x="196" y="70" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="20 contributions on 2026-01-16">
       <title>20 contributions on 2026-01-16</title>
@@ -607,8 +607,8 @@
     <rect x="392" y="56" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="1 contributions on 2026-04-23">
       <title>1 contributions on 2026-04-23</title>
     </rect>
-    <rect x="392" y="70" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="8 contributions on 2026-04-24">
-      <title>8 contributions on 2026-04-24</title>
+    <rect x="392" y="70" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="5 contributions on 2026-04-24">
+      <title>5 contributions on 2026-04-24</title>
     </rect>
     <rect x="392" y="84" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="1 contributions on 2026-04-25">
       <title>1 contributions on 2026-04-25</title>
@@ -1102,9 +1102,12 @@
     <rect x="728" y="14" width="10" height="10" rx="2" ry="2" fill="#40c463" role="img" aria-label="50 contributions on 2026-10-05">
       <title>50 contributions on 2026-10-05</title>
     </rect>
-    <rect x="728" y="28" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="9 contributions on 2026-10-06">
-      <title>9 contributions on 2026-10-06</title>
+    <rect x="728" y="28" width="10" height="10" rx="2" ry="2" fill="#9be9a8" role="img" aria-label="34 contributions on 2026-10-06">
+      <title>34 contributions on 2026-10-06</title>
+    </rect>
+    <rect x="728" y="42" width="10" height="10" rx="2" ry="2" fill="#ebedf0" role="img" aria-label="0 contributions on 2026-10-07">
+      <title>0 contributions on 2026-10-07</title>
     </rect>
   </g>
-  <text x="0" y="112" aria-hidden="true">Current Streak: 40 days | Longest Streak: 267 days</text>
+  <text x="0" y="112" aria-hidden="true">Current Streak: 0 days | Longest Streak: 267 days</text>
 </svg>
