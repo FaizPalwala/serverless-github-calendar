@@ -2,47 +2,8 @@
   "user": {
     "contributionsCollection": {
       "contributionCalendar": {
-        "totalContributions": 5033,
+        "totalContributions": 5058,
         "weeks": [
-          {
-            "contributionDays": [
-              {
-                "contributionCount": 1,
-                "date": "2025-11-02",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 1,
-                "date": "2025-11-03",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 2,
-                "date": "2025-11-04",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 1,
-                "date": "2025-11-05",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 1,
-                "date": "2025-11-06",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 1,
-                "date": "2025-11-07",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 1,
-                "date": "2025-11-08",
-                "contributionLevel": "FIRST_QUARTILE"
-              }
-            ]
-          },
           {
             "contributionDays": [
               {
@@ -2055,26 +2016,35 @@
                 "contributionLevel": "FIRST_QUARTILE"
               },
               {
-                "contributionCount": 1,
+                "contributionCount": 6,
                 "date": "2026-11-05",
                 "contributionLevel": "FIRST_QUARTILE"
               },
               {
-                "contributionCount": 1,
+                "contributionCount": 14,
                 "date": "2026-11-06",
                 "contributionLevel": "FIRST_QUARTILE"
               },
               {
-                "contributionCount": 0,
+                "contributionCount": 6,
                 "date": "2026-11-07",
-                "contributionLevel": "NONE"
+                "contributionLevel": "FIRST_QUARTILE"
+              }
+            ]
+          },
+          {
+            "contributionDays": [
+              {
+                "contributionCount": 1,
+                "date": "2026-11-08",
+                "contributionLevel": "FIRST_QUARTILE"
               }
             ]
           }
         ],
         "streaks": {
-          "currentStreak": 0,
-          "longestStreak": 239
+          "currentStreak": 73,
+          "longestStreak": 232
         }
       }
     }
