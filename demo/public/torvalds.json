@@ -2,47 +2,8 @@
   "user": {
     "contributionsCollection": {
       "contributionCalendar": {
-        "totalContributions": 4021,
+        "totalContributions": 4029,
         "weeks": [
-          {
-            "contributionDays": [
-              {
-                "contributionCount": 3,
-                "date": "2025-11-09",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 2,
-                "date": "2025-11-10",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 3,
-                "date": "2025-11-11",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 4,
-                "date": "2025-11-12",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 9,
-                "date": "2025-11-13",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 15,
-                "date": "2025-11-14",
-                "contributionLevel": "SECOND_QUARTILE"
-              },
-              {
-                "contributionCount": 5,
-                "date": "2025-11-15",
-                "contributionLevel": "FIRST_QUARTILE"
-              }
-            ]
-          },
           {
             "contributionDays": [
               {
@@ -2060,13 +2021,22 @@
                 "contributionLevel": "FIRST_QUARTILE"
               },
               {
-                "contributionCount": 6,
+                "contributionCount": 9,
                 "date": "2026-11-13",
                 "contributionLevel": "FIRST_QUARTILE"
               },
               {
-                "contributionCount": 0,
+                "contributionCount": 5,
                 "date": "2026-11-14",
+                "contributionLevel": "FIRST_QUARTILE"
+              }
+            ]
+          },
+          {
+            "contributionDays": [
+              {
+                "contributionCount": 0,
+                "date": "2026-11-15",
                 "contributionLevel": "NONE"
               }
             ]
