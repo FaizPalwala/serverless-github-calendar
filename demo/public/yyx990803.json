@@ -2,47 +2,8 @@
   "user": {
     "contributionsCollection": {
       "contributionCalendar": {
-        "totalContributions": 5041,
+        "totalContributions": 5042,
         "weeks": [
-          {
-            "contributionDays": [
-              {
-                "contributionCount": 2,
-                "date": "2025-11-16",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 2,
-                "date": "2025-11-17",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 1,
-                "date": "2025-11-18",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 2,
-                "date": "2025-11-19",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 1,
-                "date": "2025-11-20",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 1,
-                "date": "2025-11-21",
-                "contributionLevel": "FIRST_QUARTILE"
-              },
-              {
-                "contributionCount": 1,
-                "date": "2025-11-22",
-                "contributionLevel": "FIRST_QUARTILE"
-              }
-            ]
-          },
           {
             "contributionDays": [
               {
@@ -2065,8 +2026,17 @@
                 "contributionLevel": "FIRST_QUARTILE"
               },
               {
-                "contributionCount": 0,
+                "contributionCount": 1,
                 "date": "2026-11-21",
+                "contributionLevel": "FIRST_QUARTILE"
+              }
+            ]
+          },
+          {
+            "contributionDays": [
+              {
+                "contributionCount": 0,
+                "date": "2026-11-22",
                 "contributionLevel": "NONE"
               }
             ]
@@ -2074,7 +2044,7 @@
         ],
         "streaks": {
           "currentStreak": 0,
-          "longestStreak": 225
+          "longestStreak": 218
         }
       }
     }
